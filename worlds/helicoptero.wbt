@@ -3,13 +3,13 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GlossyPaint.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.23727916419446346 0.2146650221475172 0.9474267921615807 1.7243653759897626
-  position 0.03724976424881028 -0.3434432709229299 0.13613600840260365
+  orientation -0.32452045156396186 0.16705632221051545 0.9310094853041073 2.247757864013172
+  position 1.0685073830142466 -1.6535494050031478 1.4699065540420144
 }
 TexturedBackground {
 }
@@ -18,6 +18,17 @@ TexturedBackgroundLight {
 RectangleArena {
   floorSize 2 2
 }
-E-puck {
-  controller "avanzador"
+Robot {
+  translation 0 0 0.12
+  children [
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0 1 1
+      }
+      geometry DEF forma_helicoptero Box {
+        size 0.1 0.2 0.1
+      }
+    }
+  ]
+  boundingObject USE forma_helicoptero
 }
