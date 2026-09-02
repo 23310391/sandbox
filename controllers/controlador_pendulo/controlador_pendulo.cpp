@@ -16,7 +16,8 @@ int main(int argc, char **argv) {
   Motor *motor = robot->getMotor("motor");
   
   motor->setPosition(INFINITY);
-  
+  motor->setforce(0)
+
   PositionSensor *ps = robot->getPositionSensor("encoder");
   ps->enable(timeStep);
 
@@ -29,7 +30,6 @@ int main(int argc, char **argv) {
     cout<<"Posicion actual: " <<val<<endl;
 
     // Process sensor data here.
-
     // Enter here functions to send actuator commands, like:
   };
 
