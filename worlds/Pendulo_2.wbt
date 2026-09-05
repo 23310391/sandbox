@@ -5,13 +5,12 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/OsbWood.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Copper.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Plastic.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.005850297037032962 -0.0003819077177308227 -0.9999828139378564 3.011703088174292
-  position 0.5478774116801244 0.3417271671397958 0.8385645886446306
+  orientation -0.03334392536998637 -0.003260979266277707 -0.9994386167519973 2.946809658138258
+  position 0.4224495459464784 0.3258604005658135 0.858291517945558
 }
 TexturedBackground {
 }
@@ -54,41 +53,44 @@ Robot {
       endPoint Solid {
         rotation 0 1 0 0
         children [
-          Group {
+          Pose {
+            translation 0 0.0178 0.07
             children [
               Solid {
-                translation 0 0.02 0.16
+                translation 0 0 0.07
                 children [
                   Shape {
-                    geometry Sphere {
-                      radius 0.03
+                    geometry DEF FORMA_PESA Sphere {
+                      radius 0.01
                     }
                   }
                 ]
-                name "solid(1)"
-              }
-              Solid {
-                translation 0 0.02 0.07
-                rotation 0 1 0 0
-                children [
-                  Shape {
-                    appearance Plastic {
-                    }
-                    geometry DEF Forma_Tubo Cylinder {
-                      height 0.14
-                      radius 0.0025
-                    }
-                  }
-                ]
-                boundingObject USE Forma_Tubo
+                boundingObject USE FORMA_PESA
                 physics Physics {
                   density 1240
+                }
+              }
+              Shape {
+                geometry DEF FORMA_CILINDRO Cylinder {
+                  height 0.14
+                  radius 0.0025
                 }
               }
             ]
           }
         ]
-        name "solid(2)"
+        boundingObject Pose {
+          translation 0 0.0178 0.07
+          children [
+            Cylinder {
+              height 0.14
+              radius 0.0025
+            }
+          ]
+        }
+        physics Physics {
+          density 1240
+        }
       }
     }
     Shape {
